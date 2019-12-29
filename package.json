@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "unofficial-love",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A love story between unofficial couple",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "LangitBiru6107 <langitbiru6107@gmail.com>",
   "dependencies": {
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.2.34",
@@ -38,7 +35,7 @@
   "devDependencies": {
     "prettier": "^1.19.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/langitbiru6107/unofficial-love",
   "keywords": [
     "gatsby"
   ],
@@ -46,13 +43,13 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/langitbiru6107/unofficial-love.git"
   },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
