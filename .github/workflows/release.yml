@@ -11,18 +11,18 @@ jobs:
     steps:
       - name: Checkout master
         uses: actions/checkout@v2
-        
+
       - name: Install NodeJS
         uses: actions/setup-node@v1
         with:
           node-version: "14.x"
-      
+
       - name: Install dependencies
         run: yarn
-      
+
       - name: Build app
         run: yarn build
-      
+
       - name: Deploy to netlify
         uses: netlify/actions/cli@master
         env:
@@ -30,4 +30,3 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
           args: deploy --dir=build --prod
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
