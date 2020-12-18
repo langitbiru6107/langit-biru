@@ -1,16 +1,36 @@
+import { graphql, Link, PageProps } from "gatsby";
 import React from "react";
-import { Link, graphql } from "gatsby";
+import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+type DataProps = {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+  allMarkdownRemark: {
+    nodes: {
+      excerpt: string;
+      fields: {
+        slug: string;
+      };
+      frontmatter: {
+        date: string;
+        title: string;
+        description: string;
+      };
+    }[];
+  };
+};
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex: React.FC<PageProps<DataProps>> = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allMarkdownRemark.nodes;
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout title={siteTitle}>
         <SEO title="Home" />
         <p>No posts found.</p>
       </Layout>
@@ -18,10 +38,10 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="Home" />
       <ol style={{ listStyle: `none` }}>
-        {posts.map((post) => {
+        {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug;
 
           return (
@@ -42,7 +62,7 @@ const BlogIndex = ({ data, location }) => {
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
+                      __html: post.frontmatter.description || post.excerpt
                     }}
                     itemProp="description"
                   />
