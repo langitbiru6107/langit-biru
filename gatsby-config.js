@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Unofficial Love`,
+    title: `Langit Biru`,
     author: {
       name: `LangitBiru6107`,
       summary: `Programmer, writer, and procastinator`
     },
-    description: `A love story between unofficial couple.`,
-    siteUrl: `https://github.com/langitbiru6107/unofficial-love`
+    description: `Just another small blog.`,
+    siteUrl: `https://github.com/langitbiru6107/langit-biru`
   },
   plugins: [
     {

@@ -1,3 +1,3 @@
-# Unofficial Love
+# Langit Biru
 
-A love story between unofficial couple.
+Just another small blog.
