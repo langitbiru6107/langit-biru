@@ -8,9 +8,9 @@ interface Props {
 
 const Layout = ({ title, children }: Props) => {
   return (
-    <div className="global-wrapper">
-      <header className="global-header">
-        <h1 className="main-heading">
+    <div className="wrapper">
+      <header>
+        <h1>
           <Link to="/">{title}</Link>
         </h1>
       </header>
