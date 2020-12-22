@@ -2,6 +2,7 @@
 title: Try to deploy
 date: "2020-12-21T13:40:00+07:00"
 description: "I'm trying to deploy."
+type: blog
 ---
 
 I'm trying to separate deployment of the content and the website itself. Current

@@ -1,7 +1,9 @@
 ---
 title: Unofficial Love
-date: "2020-12-22T07:30:00+07:00"
 description: "The beginning of the story"
+type: story
+series: Unofficial Love
+chapter: 0
 ---
 
 "I love you!"

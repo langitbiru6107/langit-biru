@@ -2,6 +2,7 @@
 title: I write a story
 date: "2020-12-22T16:15:00+07:00"
 description: "I hope it's not trash"
+type: blog
 ---
 
 So, as you can see, I write a story in [previous post](/02-unofficial-love). At
