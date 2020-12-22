@@ -1,6 +1,7 @@
-import { graphql, Link, PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout";
+import PostItem, { PostDetail } from "../components/PostItem";
 import SEO from "../components/SEO";
 
 type DataProps = {
@@ -9,58 +10,24 @@ type DataProps = {
       title: string;
     };
   };
-  allMarkdownRemark: {
-    nodes: {
-      excerpt: string;
-      fields: {
-        slug: string;
-      };
-      frontmatter: {
-        date: string;
-        title: string;
-        description: string;
-      };
-    }[];
-  };
+  allBlogPosts: DataNodes;
+  allStoryPosts: DataNodes;
+};
+
+type DataNodes = {
+  nodes: PostDetail[];
 };
 
 const BlogIndex: React.FC<PageProps<DataProps>> = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const posts = data.allMarkdownRemark.nodes;
-
-  if (posts.length === 0) {
-    return (
-      <Layout title={siteTitle}>
-        <SEO title="Home" />
-        <p>No posts found.</p>
-      </Layout>
-    );
-  }
+  const siteTitle = data.site.siteMetadata.title;
+  const allBlogPosts = data.allBlogPosts.nodes;
+  const allStoryPosts = data.allStoryPosts.nodes;
 
   return (
     <Layout title={siteTitle}>
       <SEO title="Home" />
-      {posts.length === 0 ? (
-        <p>No posts found.</p>
-      ) : (
-        <>
-          {posts.map(post => (
-            <article key={post.fields.slug} className="post-item">
-              <h2>
-                <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-              </h2>
-              <time>{post.frontmatter.date}</time>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: post.frontmatter.description || post.excerpt
-                  }}
-                />
-              </section>
-            </article>
-          ))}
-        </>
-      )}
+      <PostItem title="All Blog Updates" posts={allBlogPosts} />
+      <PostItem title="All Story Updates" posts={allStoryPosts} />
     </Layout>
   );
 };
@@ -74,17 +41,32 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
+
+    allBlogPosts: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { type: { eq: "blog" } } }
+    ) {
+      ...postDetail
+    }
+
+    allStoryPosts: allMarkdownRemark(
+      sort: { fields: [frontmatter___chapter], order: DESC }
+      filter: { frontmatter: { type: { eq: "story" } } }
+    ) {
+      ...postDetail
+    }
+  }
+
+  fragment postDetail on MarkdownRemarkConnection {
+    nodes {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+        description
+        date(formatString: "MMMM DD, YYYY")
+        chapter
       }
     }
   }
