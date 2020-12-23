@@ -16,7 +16,7 @@ export type PostDetail = {
 const PostItem = ({ title, posts }: { title: string; posts: PostDetail[] }) => {
   return (
     <div className="post-item">
-      <h2>{title}</h2>
+      <h3>{title}</h3>
 
       {posts.length === 0 ? (
         <p>No posts found.</p>

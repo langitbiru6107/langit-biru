@@ -1,7 +1,9 @@
 .post-item {
-  background: var(--bg1);
-  margin: 20px 0;
-  padding: 12px 20px;
+  &__list {
+    background: var(--bg1);
+    margin: 20px 0;
+    padding: 12px 20px;
+  }
 
   time {
     font-size: 12px;
