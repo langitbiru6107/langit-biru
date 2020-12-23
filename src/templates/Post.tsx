@@ -1,11 +1,12 @@
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import React from "react";
+import { PostBySlugQuery } from "../../types/gatsby-graphql";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 
-const BlogPostTemplate = ({ data }) => {
+const PostTemplate: React.FC<PageProps<PostBySlugQuery>> = ({ data }) => {
   const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = data;
 
   return (
@@ -23,14 +24,10 @@ const BlogPostTemplate = ({ data }) => {
   );
 };
 
-export default BlogPostTemplate;
+export default PostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
-    $id: String!
-    $previousPostId: String
-    $nextPostId: String
-  ) {
+  query PostBySlug($id: String!, $previousPostId: String, $nextPostId: String) {
     site {
       siteMetadata {
         title

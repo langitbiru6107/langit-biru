@@ -1,19 +1,11 @@
 import { Link } from "gatsby";
 import React from "react";
+import { PostDetailFragment } from "../../types/gatsby-graphql";
 
-export type PostDetail = {
-  fields: {
-    slug: string;
-  };
-  frontmatter: {
-    title: string;
-    description: string;
-    date: string;
-    chapter: number;
-  };
-};
-
-const PostItem = ({ title, posts }: { title: string; posts: PostDetail[] }) => {
+const PostItem: React.FC<{
+  title: string;
+  posts: PostDetailFragment["nodes"];
+}> = ({ title, posts }) => {
   return (
     <div className="post-item">
       <h3>{title}</h3>

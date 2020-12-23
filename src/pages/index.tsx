@@ -1,24 +1,11 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import { IndexPageQuery } from "../../types/gatsby-graphql";
 import Layout from "../components/Layout";
-import PostItem, { PostDetail } from "../components/PostItem";
+import PostItem from "../components/PostItem";
 import SEO from "../components/SEO";
 
-type DataProps = {
-  site: {
-    siteMetadata: {
-      title: string;
-    };
-  };
-  allBlogPosts: DataNodes;
-  allStoryPosts: DataNodes;
-};
-
-type DataNodes = {
-  nodes: PostDetail[];
-};
-
-const BlogIndex: React.FC<PageProps<DataProps>> = ({ data }) => {
+const BlogIndex: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title;
   const allBlogPosts = data.allBlogPosts.nodes;
   const allStoryPosts = data.allStoryPosts.nodes;
@@ -35,7 +22,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({ data }) => {
 export default BlogIndex;
 
 export const pageQuery = graphql`
-  query {
+  query IndexPage {
     site {
       siteMetadata {
         title
