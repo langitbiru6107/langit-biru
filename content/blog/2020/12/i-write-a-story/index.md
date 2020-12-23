@@ -5,9 +5,10 @@ description: "I hope it's not trash"
 type: blog
 ---
 
-So, as you can see, I write a story in [previous post](/02-unofficial-love). At
-first, this website only will be host for my fictional story, but at the end I
-decide to make this website as a blog and host for my story.
+So, as you can see, I write a story in
+[previous post](/unofficial-love/00-unofficial-love/). At first, this website
+only will be host for my fictional story, but at the end I decide to make this
+website as a blog and host for my story.
 
 Currently the spacing is so shitty, but I already fix it in another branch. I
 will deploy it tomorrow with another fix. I also want to split the routing
