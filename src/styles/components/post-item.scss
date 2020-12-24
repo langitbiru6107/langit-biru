@@ -1,19 +1,8 @@
 .post-item {
-  &__list,
   &__more {
     background: var(--bg1);
     margin: 20px 0;
     padding: 12px 20px;
-  }
-
-  &__list {
-    time {
-      font-size: 12px;
-      color: #ffffff;
-    }
-  }
-
-  &__more {
     text-align: center;
     font-weight: bold;
   }

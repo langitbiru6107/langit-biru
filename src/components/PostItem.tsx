@@ -1,31 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import { PostDetailFragment } from "../../types/gatsby-graphql";
-
-const PostItemList: React.FC<{
-  slug?: string;
-  title?: string;
-  description?: string;
-  date?: string;
-  chapter?: number;
-}> = ({ slug, title, description, date, chapter }) => (
-  <article className="post-item__list">
-    <h2>
-      <Link to={slug}>
-        {chapter !== null && `Chapter ${chapter} : `}
-        {title}
-      </Link>
-    </h2>
-    {date && <time>{date}</time>}
-    <section>
-      <p
-        dangerouslySetInnerHTML={{
-          __html: description
-        }}
-      />
-    </section>
-  </article>
-);
+import PostItemList from "./PostItemList";
 
 const PostItem: React.FC<{
   title: string;
