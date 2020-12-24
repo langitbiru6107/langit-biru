@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import PostItem from "../components/PostItem";
 import SEO from "../components/SEO";
 
-const BlogIndex: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
+const IndexPage: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const allBlogPosts = data.allBlogPosts.nodes;
   const allStoryPosts = data.allStoryPosts.nodes;
 
@@ -22,7 +22,7 @@ const BlogIndex: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   );
 };
 
-export default BlogIndex;
+export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexPage {
