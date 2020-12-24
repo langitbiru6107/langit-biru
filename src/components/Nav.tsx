@@ -9,6 +9,10 @@ const links = [
   {
     name: "Blog",
     slug: "/blog"
+  },
+  {
+    name: "Unofficial Love",
+    slug: "/unofficial-love"
   }
 ];
 

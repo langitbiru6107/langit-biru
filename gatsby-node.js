@@ -20,6 +20,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
             frontmatter {
               type
+              series
             }
           }
         }
@@ -88,6 +89,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     ({ frontmatter: { type } }) => type === "blog"
   );
   createUpdatePage(blogPosts, "blog", "blog", "frontmatter___date", "Blog");
+
+  const unofficialLovePosts = posts.filter(
+    ({ frontmatter: { type, series } }) =>
+      type === "story" && series === "Unofficial Love"
+  );
+  createUpdatePage(
+    unofficialLovePosts,
+    "unofficial-love",
+    "story",
+    "frontmatter___chapter",
+    "Unofficial Love"
+  );
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
