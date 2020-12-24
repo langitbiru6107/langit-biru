@@ -2308,12 +2308,26 @@ export type SitePageContext = {
   id?: Maybe<Scalars["String"]>;
   previousPostId?: Maybe<Scalars["String"]>;
   nextPostId?: Maybe<Scalars["String"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
+  type?: Maybe<Scalars["String"]>;
+  sort?: Maybe<Scalars["String"]>;
+  page?: Maybe<Scalars["Int"]>;
+  numPages?: Maybe<Scalars["Int"]>;
+  title?: Maybe<Scalars["String"]>;
 };
 
 export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   previousPostId?: Maybe<StringQueryOperatorInput>;
   nextPostId?: Maybe<StringQueryOperatorInput>;
+  limit?: Maybe<IntQueryOperatorInput>;
+  skip?: Maybe<IntQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  sort?: Maybe<StringQueryOperatorInput>;
+  page?: Maybe<IntQueryOperatorInput>;
+  numPages?: Maybe<IntQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2418,6 +2432,13 @@ export type SitePageFieldsEnum =
   | "context___id"
   | "context___previousPostId"
   | "context___nextPostId"
+  | "context___limit"
+  | "context___skip"
+  | "context___type"
+  | "context___sort"
+  | "context___page"
+  | "context___numPages"
+  | "context___title"
   | "pluginCreator___id"
   | "pluginCreator___parent___id"
   | "pluginCreator___parent___parent___id"
@@ -3069,6 +3090,24 @@ export type PostDetailFragment = {
       Pick<Frontmatter, "title" | "description" | "date" | "chapter">
     >;
   }>;
+};
+
+export type PageUpdateQueryVariables = Exact<{
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  type?: Maybe<Scalars["String"]>;
+  sort?: Maybe<MarkdownRemarkFieldsEnum>;
+}>;
+
+export type PageUpdateQuery = {
+  posts: {
+    nodes: Array<{
+      fields?: Maybe<Pick<Fields, "slug">>;
+      frontmatter?: Maybe<
+        Pick<Frontmatter, "title" | "description" | "date" | "chapter">
+      >;
+    }>;
+  };
 };
 
 export type PostBySlugQueryVariables = Exact<{

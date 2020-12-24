@@ -6,19 +6,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const postTemplate = path.resolve(`./src/templates/Post.tsx`);
+  const pageUpdateTemplate = path.resolve(`./src/templates/PageUpdate.tsx`);
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
     `
       query GatsbyNode {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: ASC }
-          limit: 1000
-        ) {
+        allMarkdownRemark(limit: 1000) {
           nodes {
             id
             fields {
               slug
+            }
+            frontmatter {
+              type
             }
           }
         }
@@ -40,23 +41,48 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
 
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id;
-      const nextPostId =
-        index === posts.length - 1 ? null : posts[index + 1].id;
-
-      createPage({
-        path: post.fields.slug,
-        component: postTemplate,
-        context: {
-          id: post.id,
-          previousPostId,
-          nextPostId
-        }
-      });
-    });
+  if (posts.length <= 0) {
+    reporter.warn(`There is no posts.`);
+    return;
   }
+
+  posts.forEach((post, index) => {
+    const previousPostId = index === 0 ? null : posts[index - 1].id;
+    const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id;
+
+    createPage({
+      path: post.fields.slug,
+      component: postTemplate,
+      context: {
+        id: post.id,
+        previousPostId,
+        nextPostId
+      }
+    });
+  });
+
+  const blogPosts = posts.filter(
+    ({ frontmatter: { type } }) => type === "blog"
+  );
+
+  const postPerPage = 5;
+  const numBlogPage = Math.ceil(blogPosts.length / postPerPage);
+
+  Array.from({ length: numBlogPage }).forEach((_, index) => {
+    createPage({
+      path: `blog${index === 0 ? `/` : `/${index + 1}`}`,
+      component: pageUpdateTemplate,
+      context: {
+        limit: postPerPage,
+        skip: index * postPerPage,
+        type: "blog",
+        sort: "frontmatter___date",
+        page: index + 1,
+        numPages: numBlogPage,
+        title: "Blog"
+      }
+    });
+  });
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
