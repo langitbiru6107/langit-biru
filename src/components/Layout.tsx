@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
+import Nav from "./Nav";
 
 interface Props {
   title: string;
@@ -9,6 +10,7 @@ interface Props {
 const Layout = ({ title, children }: Props) => {
   return (
     <div className="wrapper">
+      <Nav />
       <header>
         <h1>
           <Link to="/">{title}</Link>
