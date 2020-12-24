@@ -2315,6 +2315,7 @@ export type SitePageContext = {
   page?: Maybe<Scalars["Int"]>;
   numPages?: Maybe<Scalars["Int"]>;
   title?: Maybe<Scalars["String"]>;
+  slug?: Maybe<Scalars["String"]>;
 };
 
 export type SitePageContextFilterInput = {
@@ -2328,6 +2329,7 @@ export type SitePageContextFilterInput = {
   page?: Maybe<IntQueryOperatorInput>;
   numPages?: Maybe<IntQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2439,6 +2441,7 @@ export type SitePageFieldsEnum =
   | "context___page"
   | "context___numPages"
   | "context___title"
+  | "context___slug"
   | "pluginCreator___id"
   | "pluginCreator___parent___id"
   | "pluginCreator___parent___parent___id"

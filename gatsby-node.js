@@ -79,7 +79,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         sort: "frontmatter___date",
         page: index + 1,
         numPages: numBlogPage,
-        title: "Blog"
+        title: "Blog",
+        slug: "blog"
       }
     });
   });
