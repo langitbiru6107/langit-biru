@@ -61,29 +61,33 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   });
 
+  const postPerPage = 5;
+
+  const createUpdatePage = (posts, slug, type, sort, title) => {
+    const numPages = Math.ceil(posts.length / postPerPage);
+
+    Array.from({ length: numPages }).forEach((_, index) => {
+      createPage({
+        path: `${slug}/${index === 0 ? "" : `${index + 1}`}`,
+        component: pageUpdateTemplate,
+        context: {
+          limit: postPerPage,
+          skip: index * postPerPage,
+          type: type,
+          sort: sort,
+          page: index + 1,
+          numPages: numPages,
+          title: title,
+          slug: slug
+        }
+      });
+    });
+  };
+
   const blogPosts = posts.filter(
     ({ frontmatter: { type } }) => type === "blog"
   );
-
-  const postPerPage = 5;
-  const numBlogPage = Math.ceil(blogPosts.length / postPerPage);
-
-  Array.from({ length: numBlogPage }).forEach((_, index) => {
-    createPage({
-      path: `blog${index === 0 ? `/` : `/${index + 1}`}`,
-      component: pageUpdateTemplate,
-      context: {
-        limit: postPerPage,
-        skip: index * postPerPage,
-        type: "blog",
-        sort: "frontmatter___date",
-        page: index + 1,
-        numPages: numBlogPage,
-        title: "Blog",
-        slug: "blog"
-      }
-    });
-  });
+  createUpdatePage(blogPosts, "blog", "blog", "frontmatter___date", "Blog");
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
