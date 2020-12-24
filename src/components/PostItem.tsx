@@ -30,7 +30,8 @@ const PostItemList: React.FC<{
 const PostItem: React.FC<{
   title: string;
   posts: PostDetailFragment["nodes"];
-}> = ({ title, posts }) => {
+  slug?: string;
+}> = ({ title, posts, slug }) => {
   return (
     <div className="post-item">
       <h3>{title}</h3>
@@ -43,6 +44,12 @@ const PostItem: React.FC<{
             <PostItemList {...{ ...fields, ...frontmatter }} />
           ))}
         </>
+      )}
+
+      {slug && (
+        <div className="post-item__more">
+          <Link to={slug}>See more</Link>
+        </div>
       )}
     </div>
   );

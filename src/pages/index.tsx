@@ -12,8 +12,12 @@ const BlogIndex: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <PostItem title="All Blog Updates" posts={allBlogPosts} />
-      <PostItem title="All Story Updates" posts={allStoryPosts} />
+      <PostItem title="All Blog Updates" posts={allBlogPosts} slug="/blog" />
+      <PostItem
+        title="All Story Updates"
+        posts={allStoryPosts}
+        slug="/unofficial-love"
+      />
     </Layout>
   );
 };
@@ -25,6 +29,7 @@ export const pageQuery = graphql`
     allBlogPosts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { eq: "blog" } } }
+      limit: 3
     ) {
       ...postDetail
     }
@@ -32,6 +37,7 @@ export const pageQuery = graphql`
     allStoryPosts: allMarkdownRemark(
       sort: { fields: [frontmatter___chapter], order: DESC }
       filter: { frontmatter: { type: { eq: "story" } } }
+      limit: 3
     ) {
       ...postDetail
     }
