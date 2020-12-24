@@ -12,9 +12,9 @@ const IndexPage: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <PostItem title="All Blog Updates" posts={blogPosts} slug="/blog" />
+      <PostItem title="Blog Updates" posts={blogPosts} slug="/blog" />
       <PostItem
-        title="All Story Updates"
+        title="Story Updates"
         posts={storyPosts}
         slug="/unofficial-love"
       />
