@@ -3058,8 +3058,8 @@ export type SeoQuery = {
 export type IndexPageQueryVariables = Exact<{ [key: string]: never }>;
 
 export type IndexPageQuery = {
-  allBlogPosts: PostDetailFragment;
-  allStoryPosts: PostDetailFragment;
+  blogPosts: PostDetailFragment;
+  storyPosts: PostDetailFragment;
 };
 
 export type PostDetailFragment = {
