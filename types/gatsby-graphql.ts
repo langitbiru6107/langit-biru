@@ -3055,16 +3055,9 @@ export type SeoQuery = {
   }>;
 };
 
-export type NotFoundPageQueryVariables = Exact<{ [key: string]: never }>;
-
-export type NotFoundPageQuery = {
-  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, "title">> }>;
-};
-
 export type IndexPageQueryVariables = Exact<{ [key: string]: never }>;
 
 export type IndexPageQuery = {
-  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, "title">> }>;
   allBlogPosts: PostDetailFragment;
   allStoryPosts: PostDetailFragment;
 };
@@ -3085,7 +3078,6 @@ export type PostBySlugQueryVariables = Exact<{
 }>;
 
 export type PostBySlugQuery = {
-  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, "title">> }>;
   markdownRemark?: Maybe<
     Pick<MarkdownRemark, "id" | "excerpt" | "html"> & {
       frontmatter?: Maybe<Pick<Frontmatter, "title" | "date" | "description">>;

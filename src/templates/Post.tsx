@@ -6,11 +6,10 @@ import SEO from "../components/SEO";
 
 const PostTemplate: React.FC<PageProps<PostBySlugQuery>> = ({ data }) => {
   const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = data;
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -28,11 +27,6 @@ export default PostTemplate;
 
 export const pageQuery = graphql`
   query PostBySlug($id: String!, $previousPostId: String, $nextPostId: String) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     markdownRemark(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)

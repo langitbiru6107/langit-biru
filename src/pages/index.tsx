@@ -6,12 +6,11 @@ import PostItem from "../components/PostItem";
 import SEO from "../components/SEO";
 
 const BlogIndex: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
-  const siteTitle = data.site.siteMetadata.title;
   const allBlogPosts = data.allBlogPosts.nodes;
   const allStoryPosts = data.allStoryPosts.nodes;
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO title="Home" />
       <PostItem title="All Blog Updates" posts={allBlogPosts} />
       <PostItem title="All Story Updates" posts={allStoryPosts} />
@@ -23,12 +22,6 @@ export default BlogIndex;
 
 export const pageQuery = graphql`
   query IndexPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-
     allBlogPosts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { eq: "blog" } } }
