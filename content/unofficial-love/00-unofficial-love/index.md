@@ -19,20 +19,28 @@ I looked at her, she's still quiet.
 
 I looked at the lamp above, ahh... my eyes, it's too glaring.
 
-After almost blind I looked at the window besides me, I saw a creepy reflection.
+After almost blind, I looked at the window besides me and I saw a creepy
+reflection.
 
 Is it just my imagination after almost blind?
 
-Oh, it's just my reflection.
+I try to clean my eyes. Oh, it's just my reflection.
 
-After scared of my own face, I'm back to reality. I must do something in this
-awkward mood. Let's use knowledge from all of my romance manga that I read. what
-usually happen after confession?
+After scared of my own reflection, I looked back at her. Is she quiet because of
+scared of my face?
 
-From what I read, most of the time the confession is failed with many accident.
-So, my knowledge is useless now.
+I should do something in this awkward mood. Let's use knowledge from all of my
+romance manga that I have read.
 
-Is she quiet because of scared of my face? Me too.
+What usually happened after confession?
+
+Then I remember, most of romance comedy never have any confession scene. If
+there's any, it either failed then back to zero or success then it finished in
+next chapter.
+
+Damn, I just hope there's suddenly alien invasion to failed my confession.
+
+Back to reality.
 
 Suddenly, she looked at her phone.
 
@@ -55,14 +63,14 @@ I opened it with a doubt in my heart.
 
 "I'm happy with your confession. I also have the same feeling."
 
-Suddenly my heart is beating so fast. I try to read the rest of the chat but I'm
-afraid if suddenlt I get heart attack and die.
+My heart is beating so fast. I try to read the rest of the chat but I'm afraid
+if suddenly I get heart attack and die.
 
-"Bu, can you wait until I graduate? Then we can be official couple"
-
-I read that and I didn't know how I feel.
+"But, can you wait until I graduate? Then we can be official couple"
 
 Huh...
+
+I read that and I didn't know how I feel.
 
 "Okay"
 
